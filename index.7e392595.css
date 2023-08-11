@@ -418,7 +418,7 @@
 .concept {
   border: 1px;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   display: inline-flex;
   position: relative;
   overflow: hidden;
@@ -430,7 +430,6 @@
   flex: none;
   align-items: center;
   gap: 80px;
-  width: 900px;
   padding: 80px 112px;
   display: flex;
   position: relative;
@@ -465,8 +464,8 @@
   text-align: center;
   align-self: stretch;
   margin-top: -1px;
-  font-family: Noto Sans KR, Helvetica;
-  font-size: 46px;
+  font-family: Nanum Myeongjo, Helvetica;
+  font-size: 48px;
   font-weight: 900;
   line-height: 46px;
   position: relative;
@@ -477,7 +476,7 @@
   letter-spacing: 0;
   text-align: center;
   align-self: stretch;
-  font-family: Noto Sans KR, Helvetica;
+  font-family: Nanum Myeongjo, Helvetica;
   font-size: 46px;
   font-weight: 900;
   line-height: 46px;
@@ -501,7 +500,7 @@
   letter-spacing: 0;
   text-align: center;
   align-self: stretch;
-  font-family: Noto Sans KR, Helvetica;
+  font-family: Nanum Myeongjo, Helvetica;
   font-size: 90px;
   font-weight: 900;
   line-height: 90px;
@@ -513,7 +512,7 @@
   background-image: url("ljs-0004-1.3e050e23.png");
   background-position: 50%;
   background-size: cover;
-  border-radius: 6px;
+  border-radius: 20px;
   width: 800px;
   height: 1200px;
   position: relative;
@@ -553,7 +552,7 @@
   letter-spacing: 0;
   text-align: center;
   align-self: stretch;
-  font-family: Noto Sans KR, Helvetica;
+  font-family: Nanum Myeongjo, Helvetica;
   font-size: 48px;
   font-weight: 400;
   line-height: 67.2px;
@@ -565,7 +564,12 @@
 }
 
 .concept .text-wrapper-2 {
-  font-weight: 300;
+  color: #111827;
+  letter-spacing: 0;
+  font-family: Nanum Myeongjo, Helvetica;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 67.2px;
 }
 
 .concept .frame-2 {
@@ -898,8 +902,21 @@
   position: relative;
 }
 
-.concept .button-3 {
-  background-color: #111827;
+.concept .button-31 {
+  background-color: var(--blue-800);
+  border-radius: 11.1px;
+  justify-content: center;
+  align-items: center;
+  width: 815px;
+  height: 90px;
+  padding: 18.5px 37px;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.concept .button-32 {
+  background-color: var(--pink-600);
   border-radius: 11.1px;
   justify-content: center;
   align-items: center;
@@ -1021,13 +1038,11 @@
 }
 
 .concept .footer {
-  background-color: var(--gray-50);
   mix-blend-mode: normal;
   flex-direction: column;
   flex: none;
   align-items: center;
   gap: 80px;
-  width: 900px;
   padding: 80px 112px;
   display: flex;
   position: relative;
