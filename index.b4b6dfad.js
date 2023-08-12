@@ -28449,8 +28449,8 @@ const Concept = ()=>{
                                         objectType: "feed",
                                         content: {
                                             title: "이정영 & 유예진 결혼합니다.",
-                                            description: "2023년 9월 16일 토요일 오후 5시 - 루나미엘레 그랜드볼룸",
-                                            imageUrl: "https://jeongyoungyejin.com/img/mobile-cover.jpeg",
+                                            description: "2023년 9월 16일 토요일 오후 5시\n서울 여의도 루나미엘레 그랜드볼룸",
+                                            imageUrl: "https://jeongyoungyejin.com/img/mobile-cover2.jpeg",
                                             link: {
                                                 // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
                                                 mobileWebUrl: "https://jeongyoungyejin.com",
