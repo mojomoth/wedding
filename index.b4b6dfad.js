@@ -27417,7 +27417,7 @@ const Concept = ()=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                 className: "span",
-                                children: " 유훈"
+                                children: " 유훈 "
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
                                 lineNumber: 124,
