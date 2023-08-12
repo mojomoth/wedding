@@ -331,6 +331,10 @@ img, video {
   margin-left: 1rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .flex {
   display: flex;
 }
@@ -365,6 +369,10 @@ img, video {
 
 .max-w-lg {
   max-width: 32rem;
+}
+
+.max-w-4xl {
+  max-width: 56rem;
 }
 
 .scale-100 {
@@ -476,6 +484,16 @@ img, video {
 .py-1 {
   padding-top: .25rem;
   padding-bottom: .25rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: .5rem;
+  padding-bottom: .5rem;
 }
 
 .text-left {

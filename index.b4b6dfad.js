@@ -27168,7 +27168,7 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _gallereact = require("gallereact");
 var _gallereactDefault = parcelHelpers.interopDefault(_gallereact);
 var _react1 = require("@headlessui/react");
-var _reactCopyToClipboard = require("react-copy-to-clipboard");
+var _fileSaver = require("file-saver");
 var _styleCss = require("./style.css");
 var _s = $RefreshSig$();
 const IMAGES = [
@@ -27253,7 +27253,7 @@ const copyClipBoard = async (text)=>{
 };
 const Concept = ()=>{
     _s();
-    const [images] = (0, _reactDefault.default).useState(shuffle(IMAGES));
+    const [images] = (0, _reactDefault.default).useState(IMAGES);
     const [isAccount1Open, setIsAccount1Open] = (0, _reactDefault.default).useState(false);
     const [isAccount2Open, setIsAccount2Open] = (0, _reactDefault.default).useState(false);
     const [isContact1Open, setIsContact1Open] = (0, _reactDefault.default).useState(false);
@@ -27262,9 +27262,12 @@ const Concept = ()=>{
         const container = document.getElementById("map");
         const options = {
             center: new window.kakao.maps.LatLng(37.5292711, 126.9248993),
-            level: 3
+            level: 3,
+            draggable: false
         };
         const map = new window.kakao.maps.Map(container, options);
+        const zoomControl = new window.kakao.maps.ZoomControl();
+        map.addControl(zoomControl, window.kakao.maps.ControlPosition.RIGHT);
         const markerPosition = new kakao.maps.LatLng(37.5292711, 126.9248993);
         const marker = new kakao.maps.Marker({
             position: markerPosition
@@ -27287,7 +27290,7 @@ const Concept = ()=>{
                                     children: "2023년 9월 16일 토요일 오후 5시"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 91,
+                                    lineNumber: 97,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27295,7 +27298,7 @@ const Concept = ()=>{
                                     children: "서울 여의도 루나미엘레 그랜드볼룸"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 92,
+                                    lineNumber: 98,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27303,7 +27306,7 @@ const Concept = ()=>{
                                     children: ""
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 93,
+                                    lineNumber: 99,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27311,18 +27314,18 @@ const Concept = ()=>{
                                     children: "이정영\xa0\xa0&\xa0\xa0유예진"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 94,
+                                    lineNumber: 100,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 90,
+                            lineNumber: 96,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 89,
+                        lineNumber: 95,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27333,35 +27336,35 @@ const Concept = ()=>{
                             src: "/img/talkmedia-i-j6fb34-1.png"
                         }, void 0, false, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 100,
+                            lineNumber: 106,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 99,
+                        lineNumber: 105,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "text",
                         children: [
-                            "서로 다른 두 사람이 만나 이제 함께하여 결혼을 약속합니다 ",
+                            "서로 다른 두 사람이 만나 함께하여 결혼을 약속합니다 ",
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 107,
-                                columnNumber: 44
+                                lineNumber: 113,
+                                columnNumber: 41
                             }, undefined),
-                            "저희가 이제 부부의 연으로 길을 걸어 가는 순간을 함께 지켜봐주세요"
+                            "저희가 부부의 연으로 길을 가는 순간을 함께 지켜봐주세요"
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 106,
+                        lineNumber: 112,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "div-2"
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 110,
+                        lineNumber: 116,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27370,51 +27373,6 @@ const Concept = ()=>{
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                 className: "span",
                                 children: "이용식 "
-                            }, void 0, false, {
-                                fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 112,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "text-wrapper-2",
-                                children: "\xb7"
-                            }, void 0, false, {
-                                fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 113,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "span",
-                                children: " 김삼례 "
-                            }, void 0, false, {
-                                fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 114,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "text-wrapper-2",
-                                children: "의 아들"
-                            }, void 0, false, {
-                                fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 115,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "span",
-                                children: " 이정영"
-                            }, void 0, false, {
-                                fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 116,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                                fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 117,
-                                columnNumber: 11
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                className: "span",
-                                children: " 유훈"
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
                                 lineNumber: 118,
@@ -27430,7 +27388,7 @@ const Concept = ()=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                 className: "span",
-                                children: " 김미영 "
+                                children: " 김삼례 "
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
                                 lineNumber: 120,
@@ -27438,7 +27396,7 @@ const Concept = ()=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                 className: "text-wrapper-2",
-                                children: "의 딸"
+                                children: "의 아들"
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
                                 lineNumber: 121,
@@ -27446,45 +27404,90 @@ const Concept = ()=>{
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                 className: "span",
-                                children: " 유예진"
+                                children: " 이정영"
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
                                 lineNumber: 122,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                fileName: "src/screens/Concept/Concept.jsx",
+                                lineNumber: 123,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "span",
+                                children: " 유훈"
+                            }, void 0, false, {
+                                fileName: "src/screens/Concept/Concept.jsx",
+                                lineNumber: 124,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "text-wrapper-2",
+                                children: "\xb7"
+                            }, void 0, false, {
+                                fileName: "src/screens/Concept/Concept.jsx",
+                                lineNumber: 125,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "span",
+                                children: " 김미영 "
+                            }, void 0, false, {
+                                fileName: "src/screens/Concept/Concept.jsx",
+                                lineNumber: 126,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "text-wrapper-2",
+                                children: "의 딸"
+                            }, void 0, false, {
+                                fileName: "src/screens/Concept/Concept.jsx",
+                                lineNumber: 127,
+                                columnNumber: 11
+                            }, undefined),
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                className: "span",
+                                children: " 유예진"
+                            }, void 0, false, {
+                                fileName: "src/screens/Concept/Concept.jsx",
+                                lineNumber: 128,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 111,
+                        lineNumber: 117,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "div-2"
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 124,
+                        lineNumber: 130,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "text",
                         children: [
-                            "저희 아들과 딸이 한 가정을 이루고자 혼인의 예를 올리게 되었습니다",
+                            "아들과 딸이 한 가정을 이루고자 혼인의 예를 올립니다",
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 127,
+                                lineNumber: 133,
                                 columnNumber: 11
                             }, undefined),
-                            "두 자녀의 행복한 가정을 따듯한 마음으로 축복해 주시기 바랍니다"
+                            "두 자녀의 행복을 따듯한 마음으로 축복해 주시기 바랍니다"
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 125,
+                        lineNumber: 131,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 88,
+                lineNumber: 94,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27499,12 +27502,12 @@ const Concept = ()=>{
                                 children: "G A L L E R Y"
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 133,
+                                lineNumber: 139,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 132,
+                            lineNumber: 138,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27515,23 +27518,23 @@ const Concept = ()=>{
                                 swipe: true
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 136,
+                                lineNumber: 142,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 135,
+                            lineNumber: 141,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/Concept/Concept.jsx",
-                    lineNumber: 131,
+                    lineNumber: 137,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 130,
+                lineNumber: 136,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27547,7 +27550,7 @@ const Concept = ()=>{
                                     children: "날짜 및 시간"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 143,
+                                    lineNumber: 149,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27555,18 +27558,18 @@ const Concept = ()=>{
                                     children: "2023년 9월 16일 토요일 오후 5시"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 144,
+                                    lineNumber: 150,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 142,
+                            lineNumber: 148,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 141,
+                        lineNumber: 147,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27574,7 +27577,7 @@ const Concept = ()=>{
                         id: "map"
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 147,
+                        lineNumber: 153,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27588,12 +27591,12 @@ const Concept = ()=>{
                                     children: "네이버 지도"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 153,
+                                    lineNumber: 159,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 149,
+                                lineNumber: 155,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27604,12 +27607,12 @@ const Concept = ()=>{
                                     children: "카카오 네비"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 159,
+                                    lineNumber: 165,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 155,
+                                lineNumber: 161,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27620,24 +27623,24 @@ const Concept = ()=>{
                                     children: "티맵"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 165,
+                                    lineNumber: 171,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 161,
+                                lineNumber: 167,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 148,
+                        lineNumber: 154,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 140,
+                lineNumber: 146,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27653,7 +27656,7 @@ const Concept = ()=>{
                                     children: "오시는길"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 172,
+                                    lineNumber: 178,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27661,18 +27664,18 @@ const Concept = ()=>{
                                     children: "서울시 영등포구 여의공원로 101 CCMM빌딩 12층 [루나미엘레]"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 173,
+                                    lineNumber: 179,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 171,
+                            lineNumber: 177,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 170,
+                        lineNumber: 176,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27687,7 +27690,7 @@ const Concept = ()=>{
                                         src: "/img/icon-2.svg"
                                     }, void 0, false, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 180,
+                                        lineNumber: 186,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27698,7 +27701,7 @@ const Concept = ()=>{
                                                 children: "지하철"
                                             }, void 0, false, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 182,
+                                                lineNumber: 188,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27709,12 +27712,12 @@ const Concept = ()=>{
                                                         children: "5호선 여의나루역 1번 출구 하차"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 184,
+                                                        lineNumber: 190,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 185,
+                                                        lineNumber: 191,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27724,18 +27727,18 @@ const Concept = ()=>{
                                                             "(LG쌍둥이 빌딩 여의도공원 건너편, 도보 10분)",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 189,
+                                                                lineNumber: 195,
                                                                 columnNumber: 19
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 190,
+                                                                lineNumber: 196,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 186,
+                                                        lineNumber: 192,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27743,12 +27746,12 @@ const Concept = ()=>{
                                                         children: "9호선 국회의사당역 3번 출구 하차"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 192,
+                                                        lineNumber: 198,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 193,
+                                                        lineNumber: 199,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27759,25 +27762,25 @@ const Concept = ()=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 194,
+                                                        lineNumber: 200,
                                                         columnNumber: 17
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 183,
+                                                lineNumber: 189,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 181,
+                                        lineNumber: 187,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 179,
+                                lineNumber: 185,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27789,7 +27792,7 @@ const Concept = ()=>{
                                         src: "/img/icon-1.svg"
                                     }, void 0, false, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 202,
+                                        lineNumber: 208,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27800,7 +27803,7 @@ const Concept = ()=>{
                                                 children: "버스"
                                             }, void 0, false, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 204,
+                                                lineNumber: 210,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27812,13 +27815,13 @@ const Concept = ()=>{
                                                             "여의도공원 환승센터 하차",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 208,
+                                                                lineNumber: 214,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 206,
+                                                        lineNumber: 212,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27827,37 +27830,13 @@ const Concept = ()=>{
                                                             "(여의도 공원 건너편 CCMM빌딩)",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 212,
-                                                                columnNumber: 19
-                                                            }, undefined)
-                                                        ]
-                                                    }, void 0, true, {
-                                                        fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 210,
-                                                        columnNumber: 17
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                        className: "text-wrapper-4",
-                                                        children: "일반버스"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 214,
-                                                        columnNumber: 17
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                        className: "text-wrapper-3",
-                                                        children: [
-                                                            " ",
-                                                            "10, 11-1, 11-2, 83, 88, 510, 5012, 5618",
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                                                                fileName: "src/screens/Concept/Concept.jsx",
                                                                 lineNumber: 218,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 215,
+                                                        lineNumber: 216,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27872,7 +27851,7 @@ const Concept = ()=>{
                                                         className: "text-wrapper-3",
                                                         children: [
                                                             " ",
-                                                            "5623, 6623, 6628, 5615, 6513, 6654",
+                                                            "10, 11-1, 11-2, 83, 88, 510, 5012, 5618",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
                                                                 lineNumber: 224,
@@ -27886,7 +27865,7 @@ const Concept = ()=>{
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "text-wrapper-4",
-                                                        children: "간선버스"
+                                                        children: "일반버스"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
                                                         lineNumber: 226,
@@ -27896,7 +27875,7 @@ const Concept = ()=>{
                                                         className: "text-wrapper-3",
                                                         children: [
                                                             " ",
-                                                            "160, 30, 162, 600, 260, 662, 261, 262",
+                                                            "5623, 6623, 6628, 5615, 6513, 6654",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
                                                                 lineNumber: 230,
@@ -27910,7 +27889,7 @@ const Concept = ()=>{
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "text-wrapper-4",
-                                                        children: "좌석버스"
+                                                        children: "간선버스"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
                                                         lineNumber: 232,
@@ -27920,15 +27899,10 @@ const Concept = ()=>{
                                                         className: "text-wrapper-3",
                                                         children: [
                                                             " ",
-                                                            "301, 320, 871, 8600, 8601, 8601A, G6001, 5609",
+                                                            "160, 30, 162, 600, 260, 662, 261, 262",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
                                                                 lineNumber: 236,
-                                                                columnNumber: 19
-                                                            }, undefined),
-                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
-                                                                fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 237,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
@@ -27938,12 +27912,26 @@ const Concept = ()=>{
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                        className: "span",
+                                                        className: "text-wrapper-4",
+                                                        children: "좌석버스"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/Concept/Concept.jsx",
+                                                        lineNumber: 238,
+                                                        columnNumber: 17
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "text-wrapper-3",
                                                         children: [
-                                                            "여의도 순복음교회 하차",
+                                                            " ",
+                                                            "301, 320, 871, 8600, 8601, 8601A, G6001, 5609",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 241,
+                                                                lineNumber: 242,
+                                                                columnNumber: 19
+                                                            }, undefined),
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                                                fileName: "src/screens/Concept/Concept.jsx",
+                                                                lineNumber: 243,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
@@ -27953,33 +27941,24 @@ const Concept = ()=>{
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                        className: "text-wrapper-3",
+                                                        className: "span",
                                                         children: [
-                                                            "(여의도 공원 방향으로 200M)",
+                                                            "여의도 순복음교회 하차",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 245,
+                                                                lineNumber: 247,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 243,
-                                                        columnNumber: 17
-                                                    }, undefined),
-                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
-                                                        className: "text-wrapper-4",
-                                                        children: "일반버스"
-                                                    }, void 0, false, {
-                                                        fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 247,
+                                                        lineNumber: 245,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "text-wrapper-3",
                                                         children: [
-                                                            " ",
-                                                            "10, 1002, 5615, 5618, 5633, 5713, 7613, 5534, 6623",
+                                                            "(여의도 공원 방향으로 200M)",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
                                                                 lineNumber: 251,
@@ -27988,12 +27967,12 @@ const Concept = ()=>{
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 248,
+                                                        lineNumber: 249,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "text-wrapper-4",
-                                                        children: "간선버스"
+                                                        children: "일반버스"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
                                                         lineNumber: 253,
@@ -28003,7 +27982,7 @@ const Concept = ()=>{
                                                         className: "text-wrapper-3",
                                                         children: [
                                                             " ",
-                                                            "461, 753, 261, 463",
+                                                            "10, 1002, 5615, 5618, 5633",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
                                                                 lineNumber: 257,
@@ -28017,7 +27996,7 @@ const Concept = ()=>{
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "text-wrapper-4",
-                                                        children: "좌석버스"
+                                                        children: "일반버스"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
                                                         lineNumber: 259,
@@ -28025,28 +28004,76 @@ const Concept = ()=>{
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         className: "text-wrapper-3",
+                                                        children: [
+                                                            " ",
+                                                            "5713, 7613, 5534, 6623",
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                                                fileName: "src/screens/Concept/Concept.jsx",
+                                                                lineNumber: 263,
+                                                                columnNumber: 19
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/screens/Concept/Concept.jsx",
+                                                        lineNumber: 260,
+                                                        columnNumber: 17
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "text-wrapper-4",
+                                                        children: "간선버스"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/Concept/Concept.jsx",
+                                                        lineNumber: 265,
+                                                        columnNumber: 17
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "text-wrapper-3",
+                                                        children: [
+                                                            " ",
+                                                            "461, 753, 261, 463",
+                                                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                                                                fileName: "src/screens/Concept/Concept.jsx",
+                                                                lineNumber: 269,
+                                                                columnNumber: 19
+                                                            }, undefined)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "src/screens/Concept/Concept.jsx",
+                                                        lineNumber: 266,
+                                                        columnNumber: 17
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "text-wrapper-4",
+                                                        children: "좌석버스"
+                                                    }, void 0, false, {
+                                                        fileName: "src/screens/Concept/Concept.jsx",
+                                                        lineNumber: 271,
+                                                        columnNumber: 17
+                                                    }, undefined),
+                                                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
+                                                        className: "text-wrapper-3",
                                                         children: " 7007-1, 108"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 260,
+                                                        lineNumber: 272,
                                                         columnNumber: 17
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 205,
+                                                lineNumber: 211,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 203,
+                                        lineNumber: 209,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 201,
+                                lineNumber: 207,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28058,7 +28085,7 @@ const Concept = ()=>{
                                         src: "/img/icon.svg"
                                     }, void 0, false, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 265,
+                                        lineNumber: 277,
                                         columnNumber: 13
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28069,7 +28096,7 @@ const Concept = ()=>{
                                                 children: "자가용"
                                             }, void 0, false, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 267,
+                                                lineNumber: 279,
                                                 columnNumber: 15
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28081,13 +28108,13 @@ const Concept = ()=>{
                                                             "강남방면",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 271,
+                                                                lineNumber: 283,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 269,
+                                                        lineNumber: 281,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -28096,24 +28123,24 @@ const Concept = ()=>{
                                                             "88올림픽대로 > 63빌딩 > 여의도 공원 직진 > ",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 274,
+                                                                lineNumber: 286,
                                                                 columnNumber: 57
                                                             }, undefined),
                                                             "국민일보 빌딩 > 지하 주차장",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 276,
+                                                                lineNumber: 288,
                                                                 columnNumber: 19
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 277,
+                                                                lineNumber: 289,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 273,
+                                                        lineNumber: 285,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -28122,13 +28149,13 @@ const Concept = ()=>{
                                                             "강북방면",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 281,
+                                                                lineNumber: 293,
                                                                 columnNumber: 19
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 279,
+                                                        lineNumber: 291,
                                                         columnNumber: 17
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -28138,49 +28165,49 @@ const Concept = ()=>{
                                                             " ",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 285,
+                                                                lineNumber: 297,
                                                                 columnNumber: 19
                                                             }, undefined),
                                                             "국민일보 빌딩 > 지하주차장",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 287,
+                                                                lineNumber: 299,
                                                                 columnNumber: 19
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 288,
+                                                                lineNumber: 300,
                                                                 columnNumber: 19
                                                             }, undefined),
                                                             "마포대교 이용 > 우회전 후 태영빌딩 좌회전 > ",
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 289,
+                                                                lineNumber: 301,
                                                                 columnNumber: 52
                                                             }, undefined),
                                                             "국민일보 빌딩 > 지하주차장"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 283,
+                                                        lineNumber: 295,
                                                         columnNumber: 17
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 268,
+                                                lineNumber: 280,
                                                 columnNumber: 15
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 266,
+                                        lineNumber: 278,
                                         columnNumber: 13
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 264,
+                                lineNumber: 276,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28191,24 +28218,24 @@ const Concept = ()=>{
                                     src: "/img/image-5.png"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 296,
+                                    lineNumber: 308,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 295,
+                                lineNumber: 307,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 178,
+                        lineNumber: 184,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 169,
+                lineNumber: 175,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28224,7 +28251,7 @@ const Concept = ()=>{
                                     children: "마음 전하실 곳"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 303,
+                                    lineNumber: 315,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28232,18 +28259,18 @@ const Concept = ()=>{
                                     children: "신랑 & 신부에게 축하의 마음을 전해주세요"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 304,
+                                    lineNumber: 316,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 302,
+                            lineNumber: 314,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 301,
+                        lineNumber: 313,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28257,12 +28284,12 @@ const Concept = ()=>{
                                     children: "신랑측 계좌번호"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 311,
+                                    lineNumber: 323,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 310,
+                                lineNumber: 322,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28273,24 +28300,24 @@ const Concept = ()=>{
                                     children: "신부측 계좌번호"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 314,
+                                    lineNumber: 326,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 313,
+                                lineNumber: 325,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 309,
+                        lineNumber: 321,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 300,
+                lineNumber: 312,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28306,7 +28333,7 @@ const Concept = ()=>{
                                     children: "연락처"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 321,
+                                    lineNumber: 333,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28314,18 +28341,18 @@ const Concept = ()=>{
                                     children: "신랑 신부 그리고 혼주 연락처"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 322,
+                                    lineNumber: 334,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 320,
+                            lineNumber: 332,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 319,
+                        lineNumber: 331,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28339,12 +28366,12 @@ const Concept = ()=>{
                                     children: "신랑측 연락처 확인하기"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 327,
+                                    lineNumber: 339,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 326,
+                                lineNumber: 338,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28355,24 +28382,24 @@ const Concept = ()=>{
                                     children: "신부측 연락처 확인하기"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 330,
+                                    lineNumber: 342,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 329,
+                                lineNumber: 341,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 325,
+                        lineNumber: 337,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 318,
+                lineNumber: 330,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28388,7 +28415,7 @@ const Concept = ()=>{
                                     children: "서울 여의도 루나미엘레 그랜드볼룸"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 337,
+                                    lineNumber: 349,
                                     columnNumber: 13
                                 }, undefined),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28396,23 +28423,64 @@ const Concept = ()=>{
                                     children: "2023년 9월 16일 오후 5시"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 340,
+                                    lineNumber: 352,
                                     columnNumber: 13
                                 }, undefined)
                             ]
                         }, void 0, true, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 336,
+                            lineNumber: 348,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 335,
+                        lineNumber: 347,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "buttons",
                         children: [
+                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                className: "button-5",
+                                id: "kakaotalk-sharing-btn",
+                                onClick: ()=>{
+                                    Kakao.Share.createDefaultButton({
+                                        container: "#kakaotalk-sharing-btn",
+                                        objectType: "feed",
+                                        content: {
+                                            title: "이정영 & 유예진 결혼합니다.",
+                                            description: "2023년 9월 16일 토요일 오후 5시 - 루나미엘레 그랜드볼룸",
+                                            imageUrl: "https://jeongyoungyejin.com/img/mobile-cover.jpeg",
+                                            link: {
+                                                // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+                                                mobileWebUrl: "https://jeongyoungyejin.com",
+                                                webUrl: "https://jeongyoungyejin.com"
+                                            }
+                                        },
+                                        buttons: [
+                                            {
+                                                title: "모바일 청첩장 보기",
+                                                link: {
+                                                    mobileWebUrl: "https://jeongyoungyejin.com",
+                                                    webUrl: "https://jeongyoungyejin.com"
+                                                }
+                                            }
+                                        ]
+                                    });
+                                },
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                                    className: "text-10",
+                                    children: "카카오톡 공유"
+                                }, void 0, false, {
+                                    fileName: "src/screens/Concept/Concept.jsx",
+                                    lineNumber: 382,
+                                    columnNumber: 13
+                                }, undefined)
+                            }, void 0, false, {
+                                fileName: "src/screens/Concept/Concept.jsx",
+                                lineNumber: 356,
+                                columnNumber: 11
+                            }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "button-6",
                                 onClick: ()=>copyClipBoard(`https://jeongyoungyejin.com`),
@@ -28421,39 +28489,42 @@ const Concept = ()=>{
                                     children: "URL 주소 복사"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 351,
+                                    lineNumber: 388,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 347,
+                                lineNumber: 384,
                                 columnNumber: 11
                             }, undefined),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "button-6",
+                                onClick: ()=>{
+                                    (0, _fileSaver.saveAs)("https://jeongyoungyejin.com/img/wedding-rsvp.png", "wedding-rsvp.png");
+                                },
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "text-12",
-                                    children: "이미지 다운로드"
+                                    children: "청첩장 다운로드"
                                 }, void 0, false, {
                                     fileName: "src/screens/Concept/Concept.jsx",
-                                    lineNumber: 354,
+                                    lineNumber: 393,
                                     columnNumber: 13
                                 }, undefined)
                             }, void 0, false, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 353,
+                                lineNumber: 390,
                                 columnNumber: 11
                             }, undefined)
                         ]
                     }, void 0, true, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 343,
+                        lineNumber: 355,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 334,
+                lineNumber: 346,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("footer", {
@@ -28467,7 +28538,7 @@ const Concept = ()=>{
                             src: "/img/frame-5.svg"
                         }, void 0, false, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 360,
+                            lineNumber: 399,
                             columnNumber: 11
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28475,18 +28546,18 @@ const Concept = ()=>{
                             children: "\xa9 2023 JeongYoung Lee. All Rights Reserved."
                         }, void 0, false, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 361,
+                            lineNumber: 400,
                             columnNumber: 11
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/screens/Concept/Concept.jsx",
-                    lineNumber: 359,
+                    lineNumber: 398,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 358,
+                lineNumber: 397,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AccountDialog, {
@@ -28496,7 +28567,7 @@ const Concept = ()=>{
                 accounts: ACCOUNTS1
             }, void 0, false, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 364,
+                lineNumber: 403,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(AccountDialog, {
@@ -28506,7 +28577,7 @@ const Concept = ()=>{
                 accounts: ACCOUNTS2
             }, void 0, false, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 370,
+                lineNumber: 409,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ContactDialog, {
@@ -28516,7 +28587,7 @@ const Concept = ()=>{
                 contacts: CONTACTS1
             }, void 0, false, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 376,
+                lineNumber: 415,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ContactDialog, {
@@ -28526,17 +28597,17 @@ const Concept = ()=>{
                 contacts: CONTACTS2
             }, void 0, false, {
                 fileName: "src/screens/Concept/Concept.jsx",
-                lineNumber: 382,
+                lineNumber: 421,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/screens/Concept/Concept.jsx",
-        lineNumber: 87,
+        lineNumber: 93,
         columnNumber: 5
     }, undefined);
 };
-_s(Concept, "Wfz36nctsDHxXD/C+AaZ4kTPeUs=");
+_s(Concept, "onOKGszsfqy2lFYP8d2T+2bT8rE=");
 _c = Concept;
 const AccountDialog = ({ isOpen, closeModal, title, accounts })=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Transition), {
         appear: true,
@@ -28559,12 +28630,12 @@ const AccountDialog = ({ isOpen, closeModal, title, accounts })=>/*#__PURE__*/ (
                         className: "fixed inset-0 bg-black bg-opacity-25"
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 404,
+                        lineNumber: 443,
                         columnNumber: 9
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/screens/Concept/Concept.jsx",
-                    lineNumber: 395,
+                    lineNumber: 434,
                     columnNumber: 7
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28580,7 +28651,7 @@ const AccountDialog = ({ isOpen, closeModal, title, accounts })=>/*#__PURE__*/ (
                             leaveFrom: "opacity-100 scale-100",
                             leaveTo: "opacity-0 scale-95",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Dialog).Panel, {
-                                className: "w-full transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all",
+                                className: "w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Dialog).Title, {
                                         as: "h3",
@@ -28607,12 +28678,12 @@ const AccountDialog = ({ isOpen, closeModal, title, accounts })=>/*#__PURE__*/ (
                                                             d: "m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                                                         }, void 0, false, {
                                                             fileName: "src/screens/Concept/Concept.jsx",
-                                                            lineNumber: 437,
+                                                            lineNumber: 476,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 430,
+                                                        lineNumber: 469,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -28620,23 +28691,23 @@ const AccountDialog = ({ isOpen, closeModal, title, accounts })=>/*#__PURE__*/ (
                                                         children: "Close modal"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 445,
+                                                        lineNumber: 484,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 424,
+                                                lineNumber: 463,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 419,
+                                        lineNumber: 458,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "mt-5",
+                                        className: "mt-8",
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                 className: "flex flex-row justify-between items-center text-gray-600 text-2xl",
@@ -28648,34 +28719,34 @@ const AccountDialog = ({ isOpen, closeModal, title, accounts })=>/*#__PURE__*/ (
                                                                 children: accounts[0][1]
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 452,
+                                                                lineNumber: 491,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 450,
+                                                        lineNumber: 489,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                            className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-1 py-1 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                                            className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
                                                             onClick: ()=>copyClipBoard(accounts[0][1]),
                                                             children: "계좌번호 복사"
                                                         }, void 0, false, {
                                                             fileName: "src/screens/Concept/Concept.jsx",
-                                                            lineNumber: 458,
+                                                            lineNumber: 497,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 454,
+                                                        lineNumber: 493,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 449,
+                                                lineNumber: 488,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28688,34 +28759,34 @@ const AccountDialog = ({ isOpen, closeModal, title, accounts })=>/*#__PURE__*/ (
                                                                 children: accounts[1][1]
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 469,
+                                                                lineNumber: 508,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 467,
+                                                        lineNumber: 506,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                            className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-1 py-1 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                                            className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
                                                             onClick: ()=>copyClipBoard(accounts[1][1]),
                                                             children: "계좌번호 복사"
                                                         }, void 0, false, {
                                                             fileName: "src/screens/Concept/Concept.jsx",
-                                                            lineNumber: 475,
+                                                            lineNumber: 514,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 471,
+                                                        lineNumber: 510,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 466,
+                                                lineNumber: 505,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28728,72 +28799,72 @@ const AccountDialog = ({ isOpen, closeModal, title, accounts })=>/*#__PURE__*/ (
                                                                 children: accounts[2][1]
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 486,
+                                                                lineNumber: 525,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 484,
+                                                        lineNumber: 523,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                            className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-1 py-1 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                                            className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
                                                             onClick: ()=>copyClipBoard(accounts[2][1]),
                                                             children: "계좌번호 복사"
                                                         }, void 0, false, {
                                                             fileName: "src/screens/Concept/Concept.jsx",
-                                                            lineNumber: 492,
+                                                            lineNumber: 531,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 488,
+                                                        lineNumber: 527,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 483,
+                                                lineNumber: 522,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 448,
+                                        lineNumber: 487,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 418,
+                                lineNumber: 457,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 409,
+                            lineNumber: 448,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 408,
+                        lineNumber: 447,
                         columnNumber: 9
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/screens/Concept/Concept.jsx",
-                    lineNumber: 407,
+                    lineNumber: 446,
                     columnNumber: 7
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/screens/Concept/Concept.jsx",
-            lineNumber: 394,
+            lineNumber: 433,
             columnNumber: 5
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/Concept/Concept.jsx",
-        lineNumber: 393,
+        lineNumber: 432,
         columnNumber: 3
     }, undefined);
 _c1 = AccountDialog;
@@ -28818,12 +28889,12 @@ const ContactDialog = ({ isOpen, closeModal, title, contacts })=>/*#__PURE__*/ (
                         className: "fixed inset-0 bg-black bg-opacity-25"
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 521,
+                        lineNumber: 560,
                         columnNumber: 9
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/screens/Concept/Concept.jsx",
-                    lineNumber: 512,
+                    lineNumber: 551,
                     columnNumber: 7
                 }, undefined),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -28839,7 +28910,7 @@ const ContactDialog = ({ isOpen, closeModal, title, contacts })=>/*#__PURE__*/ (
                             leaveFrom: "opacity-100 scale-100",
                             leaveTo: "opacity-0 scale-95",
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Dialog).Panel, {
-                                className: "w-full transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all",
+                                className: "w-full max-w-4xl transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all",
                                 children: [
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _react1.Dialog).Title, {
                                         as: "h3",
@@ -28866,12 +28937,12 @@ const ContactDialog = ({ isOpen, closeModal, title, contacts })=>/*#__PURE__*/ (
                                                             d: "m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                                                         }, void 0, false, {
                                                             fileName: "src/screens/Concept/Concept.jsx",
-                                                            lineNumber: 554,
+                                                            lineNumber: 593,
                                                             columnNumber: 21
                                                         }, undefined)
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 547,
+                                                        lineNumber: 586,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -28879,23 +28950,23 @@ const ContactDialog = ({ isOpen, closeModal, title, contacts })=>/*#__PURE__*/ (
                                                         children: "Close modal"
                                                     }, void 0, false, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 562,
+                                                        lineNumber: 601,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 541,
+                                                lineNumber: 580,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 536,
+                                        lineNumber: 575,
                                         columnNumber: 15
                                     }, undefined),
                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                                        className: "mt-5",
+                                        className: "mt-8",
                                         children: [
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                                                 className: "flex flex-row justify-between items-center text-gray-600 text-2xl",
@@ -28907,45 +28978,45 @@ const ContactDialog = ({ isOpen, closeModal, title, contacts })=>/*#__PURE__*/ (
                                                                 children: contacts[0][1]
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 569,
+                                                                lineNumber: 608,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 567,
+                                                        lineNumber: 606,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                                className: "inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-1 py-1 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                                                className: "inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
                                                                 onClick: ()=>window.open(`tel:${contacts[0][1]}`, "_blank"),
                                                                 children: "\uD83D\uDCDE 전화하기"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 572,
+                                                                lineNumber: 611,
                                                                 columnNumber: 21
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                                className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-1 py-1 text-2xl font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2",
+                                                                className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-2xl font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2",
                                                                 onClick: ()=>window.open(`sms:${contacts[0][1]}`, "_blank"),
                                                                 children: "✉️ 문자하기"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 580,
+                                                                lineNumber: 619,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 571,
+                                                        lineNumber: 610,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 566,
+                                                lineNumber: 605,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -28958,45 +29029,45 @@ const ContactDialog = ({ isOpen, closeModal, title, contacts })=>/*#__PURE__*/ (
                                                                 children: contacts[1][1]
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 593,
+                                                                lineNumber: 632,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 591,
+                                                        lineNumber: 630,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                                className: "inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-1 py-1 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                                                className: "inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
                                                                 onClick: ()=>window.open(`tel:${contacts[1][1]}`, "_blank"),
                                                                 children: "\uD83D\uDCDE 전화하기"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 596,
+                                                                lineNumber: 635,
                                                                 columnNumber: 21
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                                className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-1 py-1 text-2xl font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2",
+                                                                className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-2xl font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2",
                                                                 onClick: ()=>window.open(`sms:${contacts[1][1]}`, "_blank"),
                                                                 children: "✉️ 문자하기"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 604,
+                                                                lineNumber: 643,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 595,
+                                                        lineNumber: 634,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 590,
+                                                lineNumber: 629,
                                                 columnNumber: 17
                                             }, undefined),
                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -29009,83 +29080,83 @@ const ContactDialog = ({ isOpen, closeModal, title, contacts })=>/*#__PURE__*/ (
                                                                 children: contacts[2][1]
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 617,
+                                                                lineNumber: 656,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 615,
+                                                        lineNumber: 654,
                                                         columnNumber: 19
                                                     }, undefined),
                                                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                                         children: [
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                                className: "inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-1 py-1 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
+                                                                className: "inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-2xl font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2",
                                                                 onClick: ()=>window.open(`tel:${contacts[2][1]}`, "_blank"),
                                                                 children: "\uD83D\uDCDE 전화하기"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 620,
+                                                                lineNumber: 659,
                                                                 columnNumber: 21
                                                             }, undefined),
                                                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
-                                                                className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-1 py-1 text-2xl font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2",
+                                                                className: "ml-4 inline-flex justify-center rounded-md border border-transparent bg-green-100 px-4 py-2 text-2xl font-medium text-green-900 hover:bg-green-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2",
                                                                 onClick: ()=>window.open(`sms:${contacts[2][1]}`, "_blank"),
                                                                 children: "✉️ 문자하기"
                                                             }, void 0, false, {
                                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                                lineNumber: 628,
+                                                                lineNumber: 667,
                                                                 columnNumber: 21
                                                             }, undefined)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/screens/Concept/Concept.jsx",
-                                                        lineNumber: 619,
+                                                        lineNumber: 658,
                                                         columnNumber: 19
                                                     }, undefined)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/screens/Concept/Concept.jsx",
-                                                lineNumber: 614,
+                                                lineNumber: 653,
                                                 columnNumber: 17
                                             }, undefined)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/screens/Concept/Concept.jsx",
-                                        lineNumber: 565,
+                                        lineNumber: 604,
                                         columnNumber: 15
                                     }, undefined)
                                 ]
                             }, void 0, true, {
                                 fileName: "src/screens/Concept/Concept.jsx",
-                                lineNumber: 535,
+                                lineNumber: 574,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/screens/Concept/Concept.jsx",
-                            lineNumber: 526,
+                            lineNumber: 565,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/screens/Concept/Concept.jsx",
-                        lineNumber: 525,
+                        lineNumber: 564,
                         columnNumber: 9
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/screens/Concept/Concept.jsx",
-                    lineNumber: 524,
+                    lineNumber: 563,
                     columnNumber: 7
                 }, undefined)
             ]
         }, void 0, true, {
             fileName: "src/screens/Concept/Concept.jsx",
-            lineNumber: 511,
+            lineNumber: 550,
             columnNumber: 5
         }, undefined)
     }, void 0, false, {
         fileName: "src/screens/Concept/Concept.jsx",
-        lineNumber: 510,
+        lineNumber: 549,
         columnNumber: 3
     }, undefined);
 _c2 = ContactDialog;
@@ -29099,7 +29170,7 @@ $RefreshReg$(_c2, "ContactDialog");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","gallereact":"c860Y","@headlessui/react":"4Afcd","react-copy-to-clipboard":"anQWY","./style.css":"b9Dla","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"c860Y":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","gallereact":"c860Y","@headlessui/react":"4Afcd","./style.css":"b9Dla","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","file-saver":"3ILQE"}],"c860Y":[function(require,module,exports) {
 module.exports = function(e) {
     var n = {};
     function t(r) {
@@ -39452,331 +39523,7 @@ function l(r) {
     };
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"anQWY":[function(require,module,exports) {
-"use strict";
-var _require = require("99aa6b4b4dba3280"), CopyToClipboard = _require.CopyToClipboard;
-CopyToClipboard.CopyToClipboard = CopyToClipboard;
-module.exports = CopyToClipboard;
-
-},{"99aa6b4b4dba3280":"df1uY"}],"df1uY":[function(require,module,exports) {
-"use strict";
-function _typeof(obj) {
-    "@babel/helpers - typeof";
-    return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
-        return typeof obj;
-    } : function(obj) {
-        return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    }, _typeof(obj);
-}
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.CopyToClipboard = void 0;
-var _react = _interopRequireDefault(require("78acb70d643b1b1"));
-var _copyToClipboard = _interopRequireDefault(require("f396ad935921a64c"));
-var _excluded = [
-    "text",
-    "onCopy",
-    "options",
-    "children"
-];
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {
-        "default": obj
-    };
-}
-function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-    if (Object.getOwnPropertySymbols) {
-        var symbols = Object.getOwnPropertySymbols(object);
-        enumerableOnly && (symbols = symbols.filter(function(sym) {
-            return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-        })), keys.push.apply(keys, symbols);
-    }
-    return keys;
-}
-function _objectSpread(target) {
-    for(var i = 1; i < arguments.length; i++){
-        var source = null != arguments[i] ? arguments[i] : {};
-        i % 2 ? ownKeys(Object(source), !0).forEach(function(key) {
-            _defineProperty(target, key, source[key]);
-        }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function(key) {
-            Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-        });
-    }
-    return target;
-}
-function _objectWithoutProperties(source, excluded) {
-    if (source == null) return {};
-    var target = _objectWithoutPropertiesLoose(source, excluded);
-    var key, i;
-    if (Object.getOwnPropertySymbols) {
-        var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-        for(i = 0; i < sourceSymbolKeys.length; i++){
-            key = sourceSymbolKeys[i];
-            if (excluded.indexOf(key) >= 0) continue;
-            if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-            target[key] = source[key];
-        }
-    }
-    return target;
-}
-function _objectWithoutPropertiesLoose(source, excluded) {
-    if (source == null) return {};
-    var target = {};
-    var sourceKeys = Object.keys(source);
-    var key, i;
-    for(i = 0; i < sourceKeys.length; i++){
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        target[key] = source[key];
-    }
-    return target;
-}
-function _classCallCheck(instance, Constructor) {
-    if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-}
-function _defineProperties(target, props) {
-    for(var i = 0; i < props.length; i++){
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
-    }
-}
-function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    Object.defineProperty(Constructor, "prototype", {
-        writable: false
-    });
-    return Constructor;
-}
-function _inherits(subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function");
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-        constructor: {
-            value: subClass,
-            writable: true,
-            configurable: true
-        }
-    });
-    Object.defineProperty(subClass, "prototype", {
-        writable: false
-    });
-    if (superClass) _setPrototypeOf(subClass, superClass);
-}
-function _setPrototypeOf(o, p) {
-    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-        o.__proto__ = p;
-        return o;
-    };
-    return _setPrototypeOf(o, p);
-}
-function _createSuper(Derived) {
-    var hasNativeReflectConstruct = _isNativeReflectConstruct();
-    return function _createSuperInternal() {
-        var Super = _getPrototypeOf(Derived), result;
-        if (hasNativeReflectConstruct) {
-            var NewTarget = _getPrototypeOf(this).constructor;
-            result = Reflect.construct(Super, arguments, NewTarget);
-        } else result = Super.apply(this, arguments);
-        return _possibleConstructorReturn(this, result);
-    };
-}
-function _possibleConstructorReturn(self, call) {
-    if (call && (_typeof(call) === "object" || typeof call === "function")) return call;
-    else if (call !== void 0) throw new TypeError("Derived constructors may only return object or undefined");
-    return _assertThisInitialized(self);
-}
-function _assertThisInitialized(self) {
-    if (self === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    return self;
-}
-function _isNativeReflectConstruct() {
-    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
-    if (Reflect.construct.sham) return false;
-    if (typeof Proxy === "function") return true;
-    try {
-        Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function() {}));
-        return true;
-    } catch (e) {
-        return false;
-    }
-}
-function _getPrototypeOf(o) {
-    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-        return o.__proto__ || Object.getPrototypeOf(o);
-    };
-    return _getPrototypeOf(o);
-}
-function _defineProperty(obj, key, value) {
-    if (key in obj) Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-    });
-    else obj[key] = value;
-    return obj;
-}
-var CopyToClipboard = /*#__PURE__*/ function(_React$PureComponent) {
-    _inherits(CopyToClipboard, _React$PureComponent);
-    var _super = _createSuper(CopyToClipboard);
-    function CopyToClipboard() {
-        var _this;
-        _classCallCheck(this, CopyToClipboard);
-        for(var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++)args[_key] = arguments[_key];
-        _this = _super.call.apply(_super, [
-            this
-        ].concat(args));
-        _defineProperty(_assertThisInitialized(_this), "onClick", function(event) {
-            var _this$props = _this.props, text = _this$props.text, onCopy = _this$props.onCopy, children = _this$props.children, options = _this$props.options;
-            var elem = _react["default"].Children.only(children);
-            var result = (0, _copyToClipboard["default"])(text, options);
-            if (onCopy) onCopy(text, result);
-             // Bypass onClick if it was present
-            if (elem && elem.props && typeof elem.props.onClick === "function") elem.props.onClick(event);
-        });
-        return _this;
-    }
-    _createClass(CopyToClipboard, [
-        {
-            key: "render",
-            value: function render() {
-                var _this$props2 = this.props, _text = _this$props2.text, _onCopy = _this$props2.onCopy, _options = _this$props2.options, children = _this$props2.children, props = _objectWithoutProperties(_this$props2, _excluded);
-                var elem = _react["default"].Children.only(children);
-                return /*#__PURE__*/ _react["default"].cloneElement(elem, _objectSpread(_objectSpread({}, props), {}, {
-                    onClick: this.onClick
-                }));
-            }
-        }
-    ]);
-    return CopyToClipboard;
-}(_react["default"].PureComponent);
-exports.CopyToClipboard = CopyToClipboard;
-_defineProperty(CopyToClipboard, "defaultProps", {
-    onCopy: undefined,
-    options: undefined
-});
-
-},{"78acb70d643b1b1":"21dqq","f396ad935921a64c":"fLPFI"}],"fLPFI":[function(require,module,exports) {
-"use strict";
-var deselectCurrent = require("b270149f26797c52");
-var clipboardToIE11Formatting = {
-    "text/plain": "Text",
-    "text/html": "Url",
-    "default": "Text"
-};
-var defaultMessage = "Copy to clipboard: #{key}, Enter";
-function format(message) {
-    var copyKey = (/mac os x/i.test(navigator.userAgent) ? "⌘" : "Ctrl") + "+C";
-    return message.replace(/#{\s*key\s*}/g, copyKey);
-}
-function copy(text, options) {
-    var debug, message, reselectPrevious, range, selection, mark, success = false;
-    if (!options) options = {};
-    debug = options.debug || false;
-    try {
-        reselectPrevious = deselectCurrent();
-        range = document.createRange();
-        selection = document.getSelection();
-        mark = document.createElement("span");
-        mark.textContent = text;
-        // avoid screen readers from reading out loud the text
-        mark.ariaHidden = "true";
-        // reset user styles for span element
-        mark.style.all = "unset";
-        // prevents scrolling to the end of the page
-        mark.style.position = "fixed";
-        mark.style.top = 0;
-        mark.style.clip = "rect(0, 0, 0, 0)";
-        // used to preserve spaces and line breaks
-        mark.style.whiteSpace = "pre";
-        // do not inherit user-select (it may be `none`)
-        mark.style.webkitUserSelect = "text";
-        mark.style.MozUserSelect = "text";
-        mark.style.msUserSelect = "text";
-        mark.style.userSelect = "text";
-        mark.addEventListener("copy", function(e) {
-            e.stopPropagation();
-            if (options.format) {
-                e.preventDefault();
-                if (typeof e.clipboardData === "undefined") {
-                    debug && console.warn("unable to use e.clipboardData");
-                    debug && console.warn("trying IE specific stuff");
-                    window.clipboardData.clearData();
-                    var format = clipboardToIE11Formatting[options.format] || clipboardToIE11Formatting["default"];
-                    window.clipboardData.setData(format, text);
-                } else {
-                    e.clipboardData.clearData();
-                    e.clipboardData.setData(options.format, text);
-                }
-            }
-            if (options.onCopy) {
-                e.preventDefault();
-                options.onCopy(e.clipboardData);
-            }
-        });
-        document.body.appendChild(mark);
-        range.selectNodeContents(mark);
-        selection.addRange(range);
-        var successful = document.execCommand("copy");
-        if (!successful) throw new Error("copy command was unsuccessful");
-        success = true;
-    } catch (err) {
-        debug && console.error("unable to copy using execCommand: ", err);
-        debug && console.warn("trying IE specific stuff");
-        try {
-            window.clipboardData.setData(options.format || "text", text);
-            options.onCopy && options.onCopy(window.clipboardData);
-            success = true;
-        } catch (err) {
-            debug && console.error("unable to copy using clipboardData: ", err);
-            debug && console.error("falling back to prompt");
-            message = format("message" in options ? options.message : defaultMessage);
-            window.prompt(message, text);
-        }
-    } finally{
-        if (selection) {
-            if (typeof selection.removeRange == "function") selection.removeRange(range);
-            else selection.removeAllRanges();
-        }
-        if (mark) document.body.removeChild(mark);
-        reselectPrevious();
-    }
-    return success;
-}
-module.exports = copy;
-
-},{"b270149f26797c52":"jmaua"}],"jmaua":[function(require,module,exports) {
-module.exports = function() {
-    var selection = document.getSelection();
-    if (!selection.rangeCount) return function() {};
-    var active = document.activeElement;
-    var ranges = [];
-    for(var i = 0; i < selection.rangeCount; i++)ranges.push(selection.getRangeAt(i));
-    switch(active.tagName.toUpperCase()){
-        case "INPUT":
-        case "TEXTAREA":
-            active.blur();
-            break;
-        default:
-            active = null;
-            break;
-    }
-    selection.removeAllRanges();
-    return function() {
-        selection.type === "Caret" && selection.removeAllRanges();
-        if (!selection.rangeCount) ranges.forEach(function(range) {
-            selection.addRange(range);
-        });
-        active && active.focus();
-    };
-};
-
-},{}],"b9Dla":[function() {},{}],"km3Ru":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"b9Dla":[function() {},{}],"km3Ru":[function(require,module,exports) {
 "use strict";
 var Refresh = require("7422ead32dcc1e6b");
 function debounce(func, delay) {
@@ -40377,6 +40124,84 @@ module.exports = require("9e039173d01172ab");
     exports.register = register;
     exports.setSignature = setSignature;
 })();
+
+},{}],"3ILQE":[function(require,module,exports) {
+var global = arguments[3];
+(function(a, b) {
+    if ("function" == typeof define && define.amd) define([], b);
+    else b();
+})(this, function() {
+    "use strict";
+    function b(a, b) {
+        return "undefined" == typeof b ? b = {
+            autoBom: !1
+        } : "object" != typeof b && (console.warn("Deprecated: Expected third argument to be a object"), b = {
+            autoBom: !b
+        }), b.autoBom && /^\s*(?:text\/\S*|application\/xml|\S*\/\S*\+xml)\s*;.*charset\s*=\s*utf-8/i.test(a.type) ? new Blob([
+            "\uFEFF",
+            a
+        ], {
+            type: a.type
+        }) : a;
+    }
+    function c(a, b, c) {
+        var d = new XMLHttpRequest;
+        d.open("GET", a), d.responseType = "blob", d.onload = function() {
+            g(d.response, b, c);
+        }, d.onerror = function() {
+            console.error("could not download file");
+        }, d.send();
+    }
+    function d(a) {
+        var b = new XMLHttpRequest;
+        b.open("HEAD", a, !1);
+        try {
+            b.send();
+        } catch (a) {}
+        return 200 <= b.status && 299 >= b.status;
+    }
+    function e(a) {
+        try {
+            a.dispatchEvent(new MouseEvent("click"));
+        } catch (c) {
+            var b = document.createEvent("MouseEvents");
+            b.initMouseEvent("click", !0, !0, window, 0, 0, 0, 80, 20, !1, !1, !1, !1, 0, null), a.dispatchEvent(b);
+        }
+    }
+    var f = "object" == typeof window && window.window === window ? window : "object" == typeof self && self.self === self ? self : "object" == typeof global && global.global === global ? global : void 0, a = f.navigator && /Macintosh/.test(navigator.userAgent) && /AppleWebKit/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent), g = f.saveAs || ("object" != typeof window || window !== f ? function() {} : "download" in HTMLAnchorElement.prototype && !a ? function(b, g, h) {
+        var i = f.URL || f.webkitURL, j = document.createElement("a");
+        g = g || b.name || "download", j.download = g, j.rel = "noopener", "string" == typeof b ? (j.href = b, j.origin === location.origin ? e(j) : d(j.href) ? c(b, g, h) : e(j, j.target = "_blank")) : (j.href = i.createObjectURL(b), setTimeout(function() {
+            i.revokeObjectURL(j.href);
+        }, 4E4), setTimeout(function() {
+            e(j);
+        }, 0));
+    } : "msSaveOrOpenBlob" in navigator ? function(f, g, h) {
+        if (g = g || f.name || "download", "string" != typeof f) navigator.msSaveOrOpenBlob(b(f, h), g);
+        else if (d(f)) c(f, g, h);
+        else {
+            var i = document.createElement("a");
+            i.href = f, i.target = "_blank", setTimeout(function() {
+                e(i);
+            });
+        }
+    } : function(b, d, e, g) {
+        if (g = g || open("", "_blank"), g && (g.document.title = g.document.body.innerText = "downloading..."), "string" == typeof b) return c(b, d, e);
+        var h = "application/octet-stream" === b.type, i = /constructor/i.test(f.HTMLElement) || f.safari, j = /CriOS\/[\d]+/.test(navigator.userAgent);
+        if ((j || h && i || a) && "undefined" != typeof FileReader) {
+            var k = new FileReader;
+            k.onloadend = function() {
+                var a = k.result;
+                a = j ? a : a.replace(/^data:[^;]*;/, "data:attachment/file;"), g ? g.location.href = a : location = a, g = null;
+            }, k.readAsDataURL(b);
+        } else {
+            var l = f.URL || f.webkitURL, m = l.createObjectURL(b);
+            g ? g.location = m : location.href = m, g = null, setTimeout(function() {
+                l.revokeObjectURL(m);
+            }, 4E4);
+        }
+    });
+    f.saveAs = g.saveAs = g, module.exports = g;
+});
 
 },{}]},["4s3Ar","1xC6H","d8Dch"], "d8Dch", "parcelRequireb8e7")
 

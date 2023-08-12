@@ -664,7 +664,7 @@
   text-align: center;
   align-self: stretch;
   font-family: Noto Sans KR, Helvetica;
-  font-size: 64px;
+  font-size: 58px;
   font-weight: 900;
   line-height: 96px;
   position: relative;
@@ -673,8 +673,8 @@
 .concept .map {
   zoom: 2;
   background-color: #484848;
-  width: 480px;
-  height: 480px;
+  width: 450px;
+  height: 450px;
   margin-left: -112px;
   margin-right: -112px;
   position: relative;
