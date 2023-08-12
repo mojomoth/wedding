@@ -28500,7 +28500,7 @@ const Concept = ()=>{
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                 className: "button-6",
                                 onClick: ()=>{
-                                    (0, _fileSaver.saveAs)("https://jeongyoungyejin.com/img/wedding-rsvp.png", "wedding-rsvp.png");
+                                    (0, _fileSaver.saveAs)("https://jeongyoungyejin.com/img/wedding-rsvp.png", "이정영유예진청첩장.png");
                                 },
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                                     className: "text-12",
